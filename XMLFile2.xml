@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE adresar SYSTEM "dtd2.dtd">
+<adresar xmlns="http://cira.com/defoultNS">
+  <osoba osobaID="O12" >
+    <punoIme>
+      <ime>Petar</ime>
+      <srednjeIme>DrvoIzmena1asas</srednjeIme>
+      <prezime>Peric</prezime>
+    </punoIme>
+    <datumRodjenja>
+      <dan>12</dan>
+      <mesec>3</mesec>
+      <godina>1993</godina>
+    </datumRodjenja>
+    <adresa tip="privremena">
+      <ulica>Kralja Petra I izmena2</ulica>
+      <broj>2</broj>
+      <grad>Beograd</grad>
+    </adresa>
+    <telefon tip="fiksni">011223335</telefon>
+    <email tip="privatni">blabla@gmail.com</email>
+  </osoba>
+  <kompanija kompanijaID="K12">
+    <naziv>Pera DOO</naziv>
+    <adresa>
+      <ulica>Brace Jerkovic</ulica>
+      <broj>71</broj>
+      <grad>Beograd</grad>
+      <drzava>Srbija</drzava>
+    </adresa>
+    <telefon tip="mobilni">063/133-325</telefon>
+    <email tip ="sluzbeni">bla2bla2@gmail.com</email>
+    <email tip ="sluzbeni">bla2bla2Company@gmail.com</email>
+  </kompanija>
+</adresar>
