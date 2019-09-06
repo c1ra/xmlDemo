@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://cira.com/defoultNS" 
+           elementFormDefault="qualified" 
+           targetNamespace="http://cira.com/defoultNS" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="adresar">
+    <xs:complexType>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="osoba" />
+        <xs:element ref="kompanija" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="osoba">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="punoIme" />
+        <xs:element ref="datumRodjenja" />
+        <xs:element name="adresa" type="adresa" />
+        <xs:element ref="telefon" />
+        <xs:element ref="email" />
+      </xs:sequence>
+      <xs:attribute name="osobaID" type="xs:ID" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="punoIme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ime" >
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="3"/>
+              <xs:maxLength value="30"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="srednjeIme" type="xs:string" />
+        <xs:element name="prezime" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="datumRodjenja">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="dan">
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="30"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="mesec" />
+        <xs:element name="godina" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:complexType name="adresa">
+      <xs:sequence>
+        <xs:element name="ulica" type="xs:string"/>
+        <xs:element name="broj" type="xs:string" />
+        <xs:element name="grad" type="xs:string" />
+        <xs:element name="drzava" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute default="privremena" name="tip" type="xs:string"/>
+    </xs:complexType>
+  <xs:element name="telefon">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="\d\d\d/\d\d\d-\d\d\d"></xs:pattern>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="email">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[^@/]{1,20}@[@/][4,8].com"></xs:pattern>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="kompanija">
+    <xs:complexType>
+      <xs:sequence>
+          <xs:element name="naziv" type="xs:string" />
+        <xs:element name="adresa" type="adresa"/>
+        <xs:element ref="telefon" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="email" />
+      </xs:sequence>
+      <xs:attribute name="kompanijaID" type="xs:ID" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
